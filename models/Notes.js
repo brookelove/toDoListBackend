@@ -4,15 +4,28 @@ const sequelize = require("../config");
 
 class Notes extends Model {}
 
-Notes.init({
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: false,
+Notes.init(
+  {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+    },
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      isDate: true,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
-  body: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: false,
-  },
-});
+  {
+    sequelize,
+  }
+);
+
+model.exports = Notes;
