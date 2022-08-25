@@ -1,16 +1,16 @@
-// needs to have an id, title, body, date created
+// needs to have an id, title, notes, date, type, and location
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config");
 
-class Notes extends Model {}
+class Calender extends Model {}
 
-Notes.init({
+Calender.init({
   title: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
   },
-  body: {
+  notes: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,

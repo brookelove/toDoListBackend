@@ -1,16 +1,16 @@
-// needs to have an id, title, body, date created
+// needs to have an id, name, photo, title, type
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config");
 
-class Notes extends Model {}
+class Board extends Model {}
 
-Notes.init({
-  title: {
+Board.init({
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
   },
-  body: {
+  notes: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
