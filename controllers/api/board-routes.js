@@ -3,9 +3,11 @@ const express = require("express");
 const router = express.Router();
 const { Board, Calender } = require("../../models");
 
-// finding all Notes
+// finding all Boards
 router.get("/", (req, res) => {
-  Board.findAll({})
+  Board.findAll({
+    include: Calender,
+  })
     .then((dbBoard) => {
       res.json(dbBoard);
     })
