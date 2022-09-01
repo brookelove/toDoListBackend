@@ -49,31 +49,34 @@ router.post("/", (req, res) => {
     });
 });
 
-// update a note 
+// update a note
 router.put("/:id", (req, res) => {
-    Notes.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    }).then(updatedNote => {
+  Notes.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((updatedNote) => {
       res.json(updatedNote);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
     });
-  });
+});
 
 //delete a Blog
 router.delete("/:id", (req, res) => {
-    Notes.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(delNote => {
-      res.json(delNote)
-    .catch(err => {
+  Notes.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((delNote) => {
+      res.json(delNote);
+    })
+    .catch((err) => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
     });
-  });
+});
